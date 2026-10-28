@@ -1,0 +1,122 @@
+1:"$Sreact.fragment"
+2:I[7956,["4909","static/chunks/4909-a6ccb82e391d8f86.js","2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-306fa4b2ffa3d74b.js"],"Shell"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/media/1755441e3a2fa970-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/77c207b095007c34-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/3542ae337a75e96a.css","style"]
+0:{"P":null,"b":"TYOwcRB76dVMyEaF3Tqef","p":"","c":["","patterns","responsive-strategy"],"i":false,"f":[[["",{"children":[["section","patterns","d"],{"children":[["slug","responsive-strategy","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3542ae337a75e96a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_e647c0","children":["$","body",null,{"className":"font-sans antialiased bg-background","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["section","patterns","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","responsive-strategy","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[7946,["4909","static/chunks/4909-a6ccb82e391d8f86.js","3465","static/chunks/3465-879f51833c93ff12.js","9230","static/chunks/app/%5Bsection%5D/%5Bslug%5D/page-870e7349263339c1.js"],"MarkdownRenderer"]
+11:Tdb7,# Responsive Strategy
+
+ReviewPro is a desktop-first application with progressive adaptation to smaller screens. The mobile app is a separate product with its own patterns; this document covers the web platform.
+
+## Breakpoints
+
+| Token | Value | Name | Layout |
+|-------|-------|------|--------|
+| xs | 0px | Mobile | Single column, stacked, no sidebar |
+| sm | 768px | Tablet | Simplified layout, collapsed sidebar |
+| md | 980px | Small desktop | Full layout, sidebar collapsed by default |
+| lg | 1440px | Desktop | Full layout, sidebar can expand |
+| xl | 1920px | Wide | Max-width container, extra whitespace |
+
+These are non-standard (not Tailwind defaults). Configure explicitly.
+
+## Layout Behavior by Breakpoint
+
+### >= lg (1440px) — Desktop
+
+- Full admin shell (TopNav + SideNav expanded + Content)
+- Data tables show all columns
+- Multi-column forms (2-3 columns)
+- Side panels / drawers appear alongside content (not overlay)
+
+### md-lg (980-1440px) — Small Desktop
+
+- Admin shell with collapsed SideNav (icon rail only)
+- Data tables show priority columns, others accessible via "more"
+- Forms: 2-column max
+- Drawers overlay content (slide from right)
+
+### sm-md (768-980px) — Tablet
+
+- TopNav simplified (fewer selectors visible)
+- SideNav collapsed, opens as overlay on tap
+- Tables: fewer columns, horizontal scroll for complex tables
+- Cards stack vertically
+- Dialogs take more screen width
+
+### < sm (768px) — Mobile Web
+
+- TopNav: hamburger menu replaces sidebar
+- Full-screen navigation drawer
+- Single column everything
+- Tables become card-based lists
+- Dialogs become full-screen or bottom-sheet
+- Filter bar becomes a single "Filters" button opening a panel
+
+## Adaptation Patterns
+
+### Content Priority (Tables)
+
+Columns have priority levels. Lower-priority columns hide first:
+
+| Priority | Example | Behavior below md |
+|----------|---------|-------------------|
+| 1 (critical) | Name, Status | Always visible |
+| 2 (important) | Date, Score | Visible >= md |
+| 3 (nice-to-have) | Source, Category | Visible >= lg |
+| 4 (secondary) | Created by, Notes | Available via row expand |
+
+### Cards & Tiles
+
+- Desktop: grid layout (2-3 columns)
+- Tablet: 2 columns or single column
+- Mobile: full-width stack
+
+### Navigation
+
+- Desktop: persistent SideNav rail + expandable panel
+- Tablet: collapsed rail, panel on demand
+- Mobile: hidden entirely, hamburger > full-screen drawer
+
+### Actions
+
+- Desktop: visible buttons in header / row hover
+- Mobile: overflow menu (three-dot) or FAB for primary action
+
+## Touch Targets
+
+When adapting for tablet/mobile:
+- Minimum touch target: 44px height
+- Button minimum: 40px (Small) — meets threshold
+- Icon buttons: 44px tap area even if visual is smaller
+- List items: 48px row height minimum on mobile
+
+## Do / Don't
+
+- Do: design desktop-first, then verify tablet/mobile works
+- Don't: hide critical functionality on smaller screens
+- Do: use column priority for tables instead of horizontal scroll
+- Don't: rely on hover states for mobile (no hover on touch)
+- Do: test at 980px (our md breakpoint) — many users have this resolution
+- Don't: assume 1024px is a safe "desktop" width (our sidebar eats space)
+- Do: provide the same data access on all breakpoints (different presentation, same info)
+
+## Implementation
+
+**Breakpoints in code:** `@reviewpro/js-browser/themes/ui-app.ts` > `breakpoints`
+**MUI responsive:** use `useMediaQuery` hook or `Hidden` / `HiddenSSR` components
+**Grid:** MUI Grid or CSS Grid — both available
+5:["$","$L10",null,{"content":"$11"}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"ReviewPro Design System"}],["$","meta","1",{"name":"description","content":"Design documentation, components, patterns, and foundations for the ReviewPro platform."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"

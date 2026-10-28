@@ -1,0 +1,142 @@
+1:"$Sreact.fragment"
+2:I[7956,["4909","static/chunks/4909-a6ccb82e391d8f86.js","2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-306fa4b2ffa3d74b.js"],"Shell"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/media/1755441e3a2fa970-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/77c207b095007c34-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/3542ae337a75e96a.css","style"]
+0:{"P":null,"b":"TYOwcRB76dVMyEaF3Tqef","p":"","c":["","compositions","navigation"],"i":false,"f":[[["",{"children":[["section","compositions","d"],{"children":[["slug","navigation","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3542ae337a75e96a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_e647c0","children":["$","body",null,{"className":"font-sans antialiased bg-background","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["section","compositions","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","navigation","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[7946,["4909","static/chunks/4909-a6ccb82e391d8f86.js","3465","static/chunks/3465-879f51833c93ff12.js","9230","static/chunks/app/%5Bsection%5D/%5Bslug%5D/page-870e7349263339c1.js"],"MarkdownRenderer"]
+11:T122c,# Navigation
+
+The ReviewPro admin shell uses a two-level navigation: a persistent TopNav bar and a collapsible SideNav rail with expandable panels.
+
+## Structure
+
+```
++------------------------------------------------------------------+
+| TopNav (56px, fixed, z-index: 1000)                              |
+| [Logo] [Establishment ▾] [Date Range ▾]    [Notif] [Help] [Av]  |
++--------+---------------------------------------------------------+
+| Side   | Content Area                                            |
+| Nav    |                                                         |
+| 56px   | Page Header                                             |
+| icon   | +-------------------------------------------------+     |
+| rail   | | Breadcrumbs                                     |     |
+|        | | Title                        [Actions]         |     |
+| hover  | | [Filter bar]                                    |     |
+| expands| +-------------------------------------------------+     |
+| to     |                                                         |
+| 248px  | Page Content                                            |
+| panel  |                                                         |
++--------+---------------------------------------------------------+
+```
+
+## TopNav (56px)
+
+Fixed at top, spans full width. Contains:
+
+| Position | Element | Behavior |
+|----------|---------|----------|
+| Left | Logo (ReviewPro/Shiji) | Link to dashboard |
+| Left-center | Establishment selector | Dropdown, shows current property |
+| Center | Date range selector | Dropdown, shows selected period |
+| Right | Notifications | Badge with count, opens panel |
+| Right | Help | Opens help center |
+| Right | Avatar | User menu dropdown |
+
+**Variants:**
+- Default (single property): establishment name + date
+- Corporate (multi-property): corporate banner, different nav background (#172554)
+
+**Background:** RPP-70 (#014cb7) for default, corporate navy (#172554) for chain view.
+
+## SideNav
+
+### Collapsed State (Icon Rail, 56px)
+
+Vertical icon list. Each icon represents a section. Active section highlighted.
+On hover: tooltip with section name.
+
+### Expanded State (Panel, ~248px)
+
+Slides out on hover or click. Shows:
+- Section title with "New" chip (if applicable)
+- Sub-navigation items as text links
+- Dividers between groups
+
+### Sections (12 total)
+
+| Section | Icon | Contains |
+|---------|------|----------|
+| Dashboard | grid | Overview, My Page |
+| Reviews | star | Review list, Response management |
+| Surveys | clipboard | Survey results, Configuration |
+| Semantic | brain | Semantic analysis, Topics |
+| Cases | folder | Case management |
+| Messaging | chat | Conversations, Channels |
+| Guests | people | Guest profiles |
+| Revenue Optimizer | trending | Rate optimization |
+| Analytics | chart | Reports, Custom analytics |
+| Manage | settings | Team, Properties, Integrations |
+| Settings | gear | Account, Notifications, Permissions |
+| Learning | book | Help resources, Academy |
+
+### Mobile Behavior
+
+Below `sm` breakpoint (768px):
+- SideNav becomes a full-screen drawer overlay
+- Opened via hamburger icon in TopNav
+- Closes on navigation or outside tap
+
+## Page Header
+
+Sits at the top of the content area. Contains:
+
+1. **Breadcrumbs** (optional) — shows path within the section
+2. **Title row** — page name + action buttons (right-aligned)
+3. **Filter bar** (optional) — toggle buttons, search, filter icon with badge
+
+### Header Variants
+
+| Type | Content |
+|------|---------|
+| Default | Title + actions |
+| With breadcrumbs | Breadcrumbs above title |
+| With tabs | Tab bar below title (replaces filter bar) |
+| With filters | Filter bar with toggle groups + search |
+
+## Responsive Behavior
+
+| Breakpoint | Navigation |
+|-----------|------------|
+| >= lg (1440px) | Full layout, sidebar can stay expanded |
+| md-lg (980-1440px) | Collapsed sidebar by default |
+| sm-md (768-980px) | Collapsed sidebar, simplified header |
+| < sm (768px) | No sidebar rail, drawer overlay, stacked header |
+
+## Do / Don't
+
+- Do: keep the TopNav consistent across all pages
+- Don't: hide the TopNav on scroll
+- Do: highlight the active SideNav section
+- Don't: nest more than 2 levels in the sidebar panel
+- Do: collapse the sidebar when content needs space (data tables, charts)
+- Don't: put actions in the sidebar — it's for navigation only
+
+## Implementation
+
+**Figma:** TopNav `7184:569`, SideNav `7276:69098`, Layout `7380:15578`, navcollapsed `9503:20982`
+**Code:** `@reviewpro/ui-components` > `TopBar`, `Sidebar`, `NavigationBar`, `compositions/Navigation/`
+**Storybook:** `libs/ui-components/src/compositions/Navigation/`
+5:["$","$L10",null,{"content":"$11"}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"ReviewPro Design System"}],["$","meta","1",{"name":"description","content":"Design documentation, components, patterns, and foundations for the ReviewPro platform."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"

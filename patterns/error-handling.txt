@@ -1,0 +1,150 @@
+1:"$Sreact.fragment"
+2:I[7956,["4909","static/chunks/4909-a6ccb82e391d8f86.js","2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-306fa4b2ffa3d74b.js"],"Shell"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/media/1755441e3a2fa970-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/77c207b095007c34-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/3542ae337a75e96a.css","style"]
+0:{"P":null,"b":"TYOwcRB76dVMyEaF3Tqef","p":"","c":["","patterns","error-handling"],"i":false,"f":[[["",{"children":[["section","patterns","d"],{"children":[["slug","error-handling","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3542ae337a75e96a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_e647c0","children":["$","body",null,{"className":"font-sans antialiased bg-background","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["section","patterns","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","error-handling","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[7946,["4909","static/chunks/4909-a6ccb82e391d8f86.js","3465","static/chunks/3465-879f51833c93ff12.js","9230","static/chunks/app/%5Bsection%5D/%5Bslug%5D/page-870e7349263339c1.js"],"MarkdownRenderer"]
+11:T12ee,# Error Handling
+
+How errors are communicated to users across the platform. Different error types use different components and patterns.
+
+## Error Types & Components
+
+| Error Type | Component | Persistence | Scope |
+|------------|-----------|-------------|-------|
+| Field validation | Helper text (red) | Until fixed | Single field |
+| Form submission failure | Alert (Error) | Until dismissed/fixed | Form-level |
+| API / network error | Alert (Error) or Toast | Auto-dismiss or persistent | Page-level |
+| Permission denied | Alert (Warning) + disabled UI | Persistent | Section |
+| Not found (404) | Full-page empty state | Until navigation | Page |
+| Server error (500) | Full-page error state | Until retry | Page |
+| Action failure | Toast (Error) | Auto-dismiss (3s) | Global |
+| Action success | Toast (Success) | Auto-dismiss (3s) | Global |
+
+## Field Validation Errors
+
+**Visual:** Red border (#D3000C) + red helper text (#B0000A)
+**Timing:** On blur (leave field) or on submit
+**Behavior:** Focus scrolls to first error field
+
+```
+[Label]
+[Input field ─── red border]
+⚠ Email address is required
+```
+
+Rules:
+- Show one error at a time per field (most critical first)
+- Clear error when user starts correcting (on change)
+- Don't prevent typing while in error state
+
+## Form-Level Errors
+
+**Visual:** Alert component (Error variant) above the form or below the header
+**When:** Server rejects the submission, cross-field validation fails
+
+```
+┌──────────────────────────────────────┐
+│ ⚠ Unable to save changes            │
+│ The email address is already in use. │
+│                         [Try again]  │
+└──────────────────────────────────────┘
+```
+
+Rules:
+- Place above the form content, below the title
+- Include a specific message (not "Something went wrong")
+- Provide a retry action if applicable
+- Persists until dismissed or form is re-submitted successfully
+
+## Toast Notifications
+
+**Visual:** Snackbar/Toast at bottom-center or bottom-right
+**Duration:** Auto-dismiss after 3 seconds (error toasts: 5 seconds)
+**When:** After an action completes (success or failure)
+
+| Outcome | Toast variant | Duration |
+|---------|--------------|----------|
+| Success | Success (green) | 3s |
+| Warning | Warning (yellow) | 5s |
+| Error | Error (red) | 5s + "Retry" action |
+| Info | Info (blue) | 3s |
+
+Rules:
+- One toast at a time (queue if multiple)
+- Include an undo/retry action when possible
+- Don't use toasts for validation errors (those belong on the field)
+
+## Page-Level Errors
+
+**Visual:** Full content area replacement (Perkins/Placeholder pattern)
+**When:** The entire page data fails to load
+
+```
+        [Error illustration]
+      Unable to load reviews
+
+  We couldn't connect to the server.
+  Check your connection and try again.
+
+            [Retry]
+```
+
+Rules:
+- Keep the navigation shell visible (TopNav + SideNav)
+- Provide a Retry button
+- If the error persists after retry, suggest contacting support
+
+## Network / Connectivity
+
+**Visual:** Alert bar (warning) at the top of the content area
+**When:** Detected offline state or repeated API failures
+
+```
+┌──────────────────────────────────────┐
+│ ⚠ Connection issue — some data may  │
+│   be outdated.          [Refresh]    │
+└──────────────────────────────────────┘
+```
+
+## Error Message Writing
+
+| Principle | Example |
+|-----------|---------|
+| Be specific | "Survey name must be unique" not "Invalid input" |
+| State what to do | "Enter a valid email address" not "Invalid email" |
+| Don't blame | "Couldn't save" not "You made an error" |
+| Be concise | One sentence, no period at end |
+| Use sentence case | "Email is required" not "EMAIL IS REQUIRED" |
+
+## Do / Don't
+
+- Do: show errors as close to their source as possible (field > form > page)
+- Don't: use only red color to indicate errors (add icon + text for accessibility)
+- Do: provide a clear recovery action (retry, fix field, contact support)
+- Don't: show technical error codes to users (log them, show human message)
+- Do: preserve user input when an error occurs
+- Don't: clear forms after a failed submission
+- Do: stack error feedback (field error + form alert can coexist)
+- Don't: show a generic "Something went wrong" without context
+
+## Implementation
+
+**Field errors:** `Helper-text` component in Error state + `FieldState` Error border
+**Alerts:** `@reviewpro/ui-components` > `Alert` (Error variant)
+**Toasts:** `@reviewpro/ui-components` > `Toast`, `Snackbar`
+**Empty states:** `@reviewpro/ui-components` > `Placeholder` family
+5:["$","$L10",null,{"content":"$11"}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"ReviewPro Design System"}],["$","meta","1",{"name":"description","content":"Design documentation, components, patterns, and foundations for the ReviewPro platform."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"

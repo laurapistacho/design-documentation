@@ -1,0 +1,112 @@
+1:"$Sreact.fragment"
+2:I[7956,["4909","static/chunks/4909-a6ccb82e391d8f86.js","2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-306fa4b2ffa3d74b.js"],"Shell"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/media/1755441e3a2fa970-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/77c207b095007c34-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/3542ae337a75e96a.css","style"]
+0:{"P":null,"b":"TYOwcRB76dVMyEaF3Tqef","p":"","c":["","components","field"],"i":false,"f":[[["",{"children":[["section","components","d"],{"children":[["slug","field","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3542ae337a75e96a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_e647c0","children":["$","body",null,{"className":"font-sans antialiased bg-background","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["section","components","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","field","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[7946,["4909","static/chunks/4909-a6ccb82e391d8f86.js","3465","static/chunks/3465-879f51833c93ff12.js","9230","static/chunks/app/%5Bsection%5D/%5Bslug%5D/page-870e7349263339c1.js"],"MarkdownRenderer"]
+11:Tc8f,# Field (TextField, TextArea, Select, Autocomplete)
+
+Form input components share a unified token system and visual structure. This doc covers the shared anatomy; each variant has specific behavior.
+
+## Overview
+
+### When to use
+- Collecting user input (text, numbers, dates)
+- Selection from a list of options
+- Search/filter within datasets
+- Multi-value input (tags, recipients)
+
+## Shared Anatomy
+
+1. **Label** (optional) — above the input, describes the expected value
+2. **Container** — border with state-driven color
+3. **Input area** — text, placeholder, or selected values
+4. **Icon left** (optional) — input type indicator
+5. **Icon right** (optional) — action (clear, expand, calendar)
+6. **Helper text** (optional) — below input, guidance or validation feedback
+
+## Sizes
+
+| Size | Height | Font | Usage |
+|------|--------|------|-------|
+| Large | 48px | body1 (16px) | Standalone forms, modal inputs |
+| Small | 36px | body2 (14px) | Table inline edits, compact forms, filter bars |
+
+## Styles
+
+| Style | Usage |
+|-------|-------|
+| Outlined | Default — visible border container |
+| Ghost | Inline editing — no border until focus |
+
+## States (Unified Field Tokens)
+
+All form inputs use the same state-driven colors:
+
+| State | Border | Text | Icon |
+|-------|--------|------|------|
+| Default | #777777 | #111111 | #636363 |
+| Hover | #282828 | #111111 | #636363 |
+| Focused | #014cb7 (RPP70) | #111111 | #014cb7 |
+| Filled | #777777 | #111111 | #636363 |
+| Error | #D3000C | #111111 | #D3000C |
+| Warning | #C28A29 | #111111 | #C28A29 |
+| Disabled | #A4A4A4 | #BBBBBB | #BBBBBB |
+
+**Focus glow:** `0 0 8px 3px rgba(42, 82, 114, 0.20)` — applied on focus for all field types.
+
+## Variants
+
+### TextField
+Single-line text input. Right icon toggles visibility (password) or clears value.
+
+### TextArea
+Multi-line text input. Resizable vertically. Shows character count if configured.
+
+### Select / Autocomplete
+Dropdown with search. Can be single-select or multi-select (chips in input).
+- **Expanded:** shows dropdown list with search field
+- **Loading:** spinner replaces chevron
+- **Multi-value:** selected items appear as Chips inside the input
+
+### Searcher
+Standalone search field. Keyboard shortcut indicator ("/"). Clear on Escape.
+
+## Do / Don't
+
+- Do: always include a Label when the field is part of a form
+- Don't: use placeholder text as a substitute for labels
+- Do: provide Helper text for validation feedback
+- Don't: mix Large and Small fields in the same form
+- Do: use Ghost style only for inline/table editing contexts
+- Don't: disable fields without explaining why (use helper text)
+
+## Spacing
+
+| Property | Value |
+|----------|-------|
+| Label to input gap | 4px (xs) |
+| Input to helper gap | 4px (xs) |
+| Internal padding (Large) | 12px vertical, 16px horizontal |
+| Internal padding (Small) | 8px vertical, 12px horizontal |
+| Icon to text gap | 8px (s) |
+
+## Implementation
+
+**Figma:** `8564:56349` (NewField), `39:13743` (TextArea), `1213:4624` (Autocomplete), `8583:68885` (Searcher)
+**Code:** `@reviewpro/ui-components` > `TextField`, `TextArea`, `Select`, `Autocomplete`, `DatePicker`, `Search`
+**Tokens:** `libs/ui-components/src/styles/fieldTokens.ts`
+5:["$","$L10",null,{"content":"$11"}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"ReviewPro Design System"}],["$","meta","1",{"name":"description","content":"Design documentation, components, patterns, and foundations for the ReviewPro platform."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
